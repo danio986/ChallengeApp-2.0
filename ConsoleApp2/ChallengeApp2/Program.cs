@@ -1,114 +1,50 @@
-﻿int number = 123337845;
+﻿using ChallengeApp2;
 
-string numberAsString = number.ToString();
-char[] letters = numberAsString.ToArray();
+Employee employee1 = new Employee("Daniel", "XYZ", 31);
+Employee employee2 = new Employee("Natalia", "XYZ", 29);
+Employee employee3 = new Employee("Krzysztof", "XYZ", 35);
 
-int counter0 = 0;
-int counter1 = 0;
-int counter2 = 0;
-int counter3 = 0;
-int counter4 = 0;
-int counter5 = 0;
-int counter6 = 0;
-int counter7 = 0;
-int counter8 = 0;
-int counter9 = 0;
+employee1.AddGrade(3);
+employee1.AddGrade(1);
+employee1.AddGrade(8);
+employee1.AddGrade(4);
+employee1.AddGrade(6);
 
-foreach (char letter in letters)
+employee2.AddGrade(7);
+employee2.AddGrade(6);
+employee2.AddGrade(1);
+employee2.AddGrade(10);
+employee2.AddGrade(8);
+
+employee3.AddGrade(2);
+employee3.AddGrade(9);
+employee3.AddGrade(5);
+employee3.AddGrade(3);
+employee3.AddGrade(8);
+
+List<Employee> users = new List<Employee>()
 {
-    if (letter == '0')
-    { 
-        counter0++;
-    }
-    else if (letter == '1')
+    employee1, employee2, employee3
+};
+
+int maxResult = -1;
+Employee userWithMaxResult = null;
+
+foreach (var user in users)
+{
+    if (user.Result > maxResult)
     {
-        counter1++;
-    }
-    else if (letter == '2')
-    {
-        counter2++;
-    }
-    else if (letter == '3')
-    {
-        counter3++;
-    }
-    else if (letter == '4')
-    {
-        counter4++;
-    }
-    else if (letter == '5')
-    {
-        counter5++;
-    }
-    else if (letter == '6')
-    {
-        counter6++;
-    }
-    else if (letter == '7')
-    {
-        counter7++;
-    }
-    else if (letter == '8')
-    {
-        counter8++;
-    }
-    else if (letter == '9')
-    {
-        counter9++;
+        maxResult = user.Result;
+        userWithMaxResult = user;
     }
 }
 
-Console.WriteLine("Wyniki dla liczby: " + number);
-Console.WriteLine("0 => " + counter0);
-Console.WriteLine("1 => " + counter1);
-Console.WriteLine("2 => " + counter2);
-Console.WriteLine("3 => " + counter3);
-Console.WriteLine("4 => " + counter4);
-Console.WriteLine("5 => " + counter5);
-Console.WriteLine("6 => " + counter6);
-Console.WriteLine("7 => " + counter7);
-Console.WriteLine("8 => " + counter8);
-Console.WriteLine("9 => " + counter9);
+Console.WriteLine("Pracownik z najwyzsza ocena to: " + userWithMaxResult.Name + " " + userWithMaxResult.Surname + ", lat: " + userWithMaxResult.Age);
+Console.WriteLine("Wynik: " + userWithMaxResult.Result);
 
+//User user1 = new User("Daniel", "sds");
 
-
-
-// TABLICE
-
-//int[] grades = new int[5];
-//string[] dayOfWeeks = new string[7];
-//dayOfWeeks[0] = "poniedzialek";
-//dayOfWeeks[1] = "wtorek";
-//dayOfWeeks[2] = "sroda";
-//dayOfWeeks[3] = "czwartek";
-//dayOfWeeks[4] = "piatek";
-//dayOfWeeks[5] = "sobota";
-//dayOfWeeks[6] = "niedziela";
-//Console.WriteLine(dayOfWeeks[3]);
-
-
-//for(int i=0; i<dayOfWeeks.Length; i++)
-//{
-//    Console.WriteLine(dayOfWeeks[i]);
-//}
-
-// LISTY
-
-//List<string> dayOfWeeks = new List<string>();
-//dayOfWeeks.Add("poniedzialek");
-//dayOfWeeks.Add("wtorek");
-//dayOfWeeks.Add("sroda");
-//dayOfWeeks.Add("czwartek");
-//dayOfWeeks.Add("piatek");
-//dayOfWeeks.Add("sobota");
-//dayOfWeeks.Add("niedziela");
-
-////for (int i = 0; i < dayOfWeeks.Count; i++)
-////{
-////    Console.WriteLine(dayOfWeeks[i]);
-////}
-
-//foreach (string day in dayOfWeeks)
-//{
-//    Console.WriteLine(day);
-//}
+//user1.AddScore(5);
+//user1.AddScore(6);
+//var result = user1.Result;
+//Console.WriteLine(result);
